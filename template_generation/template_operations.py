@@ -17,7 +17,7 @@ template_router = APIRouter()
 
 
 @template_router.post("/template_types")
-def template_list(template_type_id: SchemaListOfInt | None = None) -> dict:
+async def template_list(template_type_id: SchemaListOfInt | None = None) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)
@@ -60,7 +60,7 @@ def template_list(template_type_id: SchemaListOfInt | None = None) -> dict:
 
 
 @template_router.post("/")
-def template_list(template_id: SchemaListOfInt | None = None) -> dict:
+async def template_list(template_id: SchemaListOfInt | None = None) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)
@@ -100,7 +100,7 @@ def template_list(template_id: SchemaListOfInt | None = None) -> dict:
 
 
 @template_router.post("/process_template")
-def template_list(template_data: SchemaProcessTemplate) -> dict:
+async def template_list(template_data: SchemaProcessTemplate) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)

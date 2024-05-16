@@ -14,7 +14,7 @@ auth_router = APIRouter()
 
 
 @auth_router.post("/signup")
-def signup(user_data: SchemaUserCreate) -> dict:
+async def signup(user_data: SchemaUserCreate) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)
@@ -65,7 +65,7 @@ def signup(user_data: SchemaUserCreate) -> dict:
 
 
 @auth_router.post("/login")
-def login(user_data: SchemaUserLogin) -> dict:
+async def login(user_data: SchemaUserLogin) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)
@@ -130,7 +130,7 @@ def login(user_data: SchemaUserLogin) -> dict:
 
 
 @auth_router.post("/get_user", dependencies=[Depends(JWTBearer())])
-def get_user(user_data: SchemaUserID) -> dict:
+async def get_user(user_data: SchemaUserID) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)
@@ -172,7 +172,7 @@ def get_user(user_data: SchemaUserID) -> dict:
 
 
 @auth_router.post("/regenerate_token", dependencies=[Depends(JWTBearer())])
-def generate_token(request: Request) -> dict:
+async def generate_token(request: Request) -> dict:
     # Create a database session
     db = SessionLocal()
     response = copy.deepcopy(api_response)

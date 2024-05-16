@@ -13,7 +13,7 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL)
 # Create session class
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Base class for SQLAlchemy models
+ # Base class for SQLAlchemy models
 Base = declarative_base()
 
 
@@ -33,7 +33,7 @@ def create_db_query(tb_name, filters):
             db_query += f".filter_by(**{filters})"
 
     except Exception as e:
-        ExceptionHandling(e=str(e), function_name='creat_db_query').exception_handling(
+        ExceptionHandling(e=str(e), function_name='create_db_query').exception_handling(
             message=False)
         db_query = ''
 

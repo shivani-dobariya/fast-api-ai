@@ -6,6 +6,7 @@ AUTH_TOKEN_EXP_DAY = 7
 REFRESH_AUTH_TOKEN_EXP_DAY = 7
 REFRESH_AUTH_TOKEN_EXP_MIN = 0
 
+
 from openai import OpenAI
 
 open_ai = OpenAI(api_key='OPENAI_KEY')
